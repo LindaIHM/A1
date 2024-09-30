@@ -1,4 +1,4 @@
-// Variables
+// VARIABLES
    // Button
 let button0 = document.getElementById("button0");
    // Texts
@@ -33,13 +33,16 @@ function evaluateResult(){
   if (aiRoll > playerRoll) {
     aiScore ++;
     result.innerHTML = "AI wins";
+    result.style.color = "red";
   }
   if (playerRoll > aiRoll) {
     playerScore ++;
     result.innerHTML = "Player wins";
+    result.style.color = "green";
   }
   if (aiRoll === playerRoll) {
      result.innerHTML = "Draw";
+     result.style.color = "grey";
   }
 }
 
@@ -51,8 +54,8 @@ function showAIRollResult(){
   aiRollText.innerHTML = "AI Dice result: " + aiRoll;
 }
 function showPlayerScore(){
-  playerScoreText.innerHTML = "Player score is: " + playerScore;
+  playerScoreText.innerHTML = "Player total score is: " + playerScore;
 }
 function showAiScore(){
-  aiScoreText.innerHTML = "AI score is: " + aiScore;
+  aiScoreText.innerHTML = "AI total score is: " + aiScore;
 }
