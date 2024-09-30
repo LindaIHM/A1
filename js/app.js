@@ -16,27 +16,42 @@ let aiScore = 0;
 // PROCESSES
 button0.addEventListener("click", function () {
   getRandomNumberOneToSixForPlayer();
+  evaluateResult();
   showPlayerRollResult();
   showAIRollResult();
   showPlayerScore();
   showAiScore();
 });
 
-// CONTROLLERS (add evaluation (win/loss/draw), increase player/AI score when player/AI wins
+// CONTROLLERS
 function getRandomNumberOneToSixForPlayer() {
   playerRoll = Math.floor(Math.random() * 6) + 1;
   aiRoll = Math.floor(Math.random() * 6) + 1;
 }
 
+function evaluateResult(){
+  if (aiRoll > playerRoll) {
+    aiScore ++;
+    result.innerHTML = "AI wins";
+  }
+  if (playerRoll > aiRoll) {
+    playerScore ++;
+    result.innerHTML = "Player wins";
+  }
+  if (aiRoll === playerRoll) {
+     result.innerHTML = "Draw";
+  }
+}
+
 // VIEWS
 function showPlayerRollResult() {
-  playerRollText.innerHTML = playerRoll;
+  playerRollText.innerHTML = "Player Dice result: " + playerRoll;
 }
 function showAIRollResult(){
-  aiRollText.innerHTML = aiRoll;
+  aiRollText.innerHTML = "AI Dice result: " + aiRoll;
 }
 function showPlayerScore(){
-  playerScoreText.innerHTML = "Your score is: " + playerScore;
+  playerScoreText.innerHTML = "Player score is: " + playerScore;
 }
 function showAiScore(){
   aiScoreText.innerHTML = "AI score is: " + aiScore;
